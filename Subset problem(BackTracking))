@@ -1,0 +1,17 @@
+class Solution(object):
+    def subsets(self, nums):
+        res = []
+
+        subsets = []
+        def dfs(i):
+            if i >= len(nums):
+                res.append(list(subsets))
+                return
+
+            subsets.append(nums[i])
+            dfs(i + 1)
+            subsets.pop()
+            dfs(i + 1)
+        dfs(0)
+        return res
+        
