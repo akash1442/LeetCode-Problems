@@ -1,0 +1,17 @@
+class Solution(object):
+    def subsetsWithDup(self, nums):
+        res = []
+
+        def dfs(start, subset):
+            res.append(subset[:])
+
+            for i in range(start, len(nums)):
+                if i > start and nums[i] == nums[i - 1]:
+                    continue
+                subset.append(nums[i])
+                dfs(i + 1, subset)
+                subset.pop()
+
+        nums.sort()
+        dfs(0, [])
+        return res
