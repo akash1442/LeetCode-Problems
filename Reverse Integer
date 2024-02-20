@@ -1,0 +1,20 @@
+class Solution(object):
+    def reverse(self, x):
+        new_one = 0
+        if x < 0:
+            is_negative = True
+            x = -x
+        else:
+            is_negative = False
+
+        while x != 0:
+            new = x % 10
+            new_one = new_one * 10 + new
+            x = x // 10
+        
+        if is_negative:
+            return -new_one
+        else:
+            return new_one
+
+        
