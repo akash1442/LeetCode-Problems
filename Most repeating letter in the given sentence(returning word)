@@ -1,0 +1,26 @@
+def highest_num(word):
+    words = word.split() 
+    max_count_word = None
+    max_count = 0
+    
+
+    for w in words:
+        count = {}
+        for char in w:
+            if char != ' ':
+                if char not in count:
+                    count[char] = 1
+                else:
+                    count[char] += 1
+
+    if count:
+            most_common_char = max(count, key=count.get)
+            if count[most_common_char] > max_count:
+                max_count = count[most_common_char]
+                max_count_word = w
+
+    return max_count_word
+
+word = "microsoft google"
+print(highest_num(word))
+                
