@@ -1,0 +1,19 @@
+def stack_problem(s):
+
+    charto = {")" : "(", "}" : "{", "]" : "["}
+
+    stack = []
+
+    for i in s:
+        if i in charto.values():
+            stack.append(i)
+        elif i in charto:
+            if stack and stack[-1] == charto[i]:
+                stack.pop()
+
+            
+    return not stack 
+
+
+s = "[(a+b)+{(c+d)*(e/f)}]"
+print(stack_problem(s))
