@@ -1,0 +1,50 @@
+#Merge two sorted linked list
+
+class Node:
+    def __init__(self, val):
+        self.val = val
+        self.next = None
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+        self.tail = None
+        
+
+    def sorti(self, list1, list2):
+
+        dummy = Node(0)
+        curr = dummy
+
+
+        while list1 and list2:
+            if list1.val < list2.val:
+                curr.next = list1
+                list1 = list1.next
+            else:
+                curr.next = list2
+                list2 = list2.next
+            curr = curr.next
+
+        if list1:
+            curr.next = list1
+        else:
+            curr.next = list2
+        return dummy.next
+
+list1 = Node(1)
+list1.next = Node(2)
+list1.next.next = Node(4)
+
+list2 = Node(1)
+list2.next = Node(3)
+list2.next.next = Node(4)
+
+my_linked_list = LinkedList()
+
+merged_list = my_linked_list.sorti(list1, list2)
+
+while merged_list:
+    print(merged_list.val, end = " ")
+    merged_list = merged_list.next
+            
