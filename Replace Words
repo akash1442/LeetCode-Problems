@@ -1,0 +1,18 @@
+class Solution(object):
+    def replaceWords(self, dictionary, sentence):
+        dictionary = sorted(dictionary, key=len)
+        sentence = sentence.split()
+        new_sentence = []
+
+        for word in sentence:
+            replaced = False
+            for char in dictionary:
+                if word.startswith(char):
+                    new_sentence.append(char)
+                    replaced = True
+                    break
+            if not replaced:
+                new_sentence.append(word)
+        
+        return " ".join(new_sentence)
+        
