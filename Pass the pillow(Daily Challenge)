@@ -1,0 +1,10 @@
+class Solution(object):
+    def passThePillow(self, n, time):
+
+        cyclic_length = 2 * (n - 1)
+        effective_time = time % cyclic_length
+
+        if effective_time < n:
+            return effective_time + 1
+        else:
+            return n - (effective_time - n + 1)        
