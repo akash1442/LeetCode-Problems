@@ -1,0 +1,18 @@
+You can perform following two operation on S any number of times(possibly zero).
+1). Remove first character from S
+2).Remove last character from S
+
+find total number of distinct non-empty strings that can be generated
+
+CODE:
+
+def count_distinct_substrings(s):
+    n = len(s)
+    return n * (n + 1) // 2 - 1
+
+# Example usage
+s = "abc"
+result = count_distinct_substrings(s)
+print(f"Total number of distinct non-empty substrings: {result}")
+
+
