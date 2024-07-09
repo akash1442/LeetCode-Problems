@@ -1,0 +1,20 @@
+class Solution(object):
+    def averageWaitingTime(self, customers):
+        totalWaitTime = 0
+        currentTime = 0
+        
+        for arrival, cooking in customers:
+            if currentTime < arrival:
+                currentTime = arrival
+            
+            finishTime = currentTime + cooking
+            
+            waitingTime = finishTime - arrival
+            totalWaitTime += waitingTime
+            
+            currentTime = finishTime
+        
+        n = len(customers)
+        averageWaitTime = totalWaitTime / float(n)  # Ensure floating point division
+        
+        return averageWaitTime
